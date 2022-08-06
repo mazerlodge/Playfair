@@ -1,0 +1,38 @@
+POA - Playfair
+
+Goal - Command line Playfair cipher. 
+
+Background
+Traditional Playfair is 5x5 (I/J shared) 
+With digits would be 26 + 10 = 36 --> 6x6
+	But digits can be spelled out (practical for small or single digit numbers) 
+
+ascii easily printable characters are in range chr(32) to chr(126), inclusive 
+
+Example 
+Using traditional 5x5
+Key = DEFCON
+Message = Hack all the things.
+
+1. Make a 5x5 grid using the key then completing it with unused letters. 
+	Note: Skip repeating letters and the letter I (I an J will be substitutable)
+  1 2 3 4 5
+1 D E F C O
+2 N A B G H
+3 J K L M P
+4 Q R S T U
+5 V W X Y Z
+
+2. Convert plain text ti bigrams (two letter sets) 
+	Note: if there are repeating letters, inject an X to separate them.
+Raw Text = hack all the things 
+Bigrams  = ha ck al lt he th in gs 
+
+3. Look up bigrams in grid, retrieving encoded values via the following rules: 
+	- if shape is a square swap with corresponding row
+	- if shape is a raw swap with letter to the right, wrap if necessary.
+	- if shape is a column swap with letter below, wrap if necessary.
+	
+ha ck al lt he th in gs 
+NB EM BK MS AO UG QJ BT
+
