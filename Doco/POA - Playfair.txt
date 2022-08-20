@@ -70,9 +70,9 @@ POA
 1) Build input accepting and validating.
 	e.g. -key required param and either -plaintext or -enctext
 
-3) Build grid construction and output grid (for validation, add -showgrid param)
+2) Build grid construction and output grid (for validation, add -showgrid param)
 
-4) Build encode functionality (encodeText method)
+3) Build encode functionality (encodeText method)
 	.-- add -debug option 
 	.-- define grid (genGrid method)
 	.-- prep input 
@@ -81,7 +81,7 @@ POA
 	.-- lookup bigram substitutes in grid (encBigram)
 	.-- output result 
 	
-5) Build decode functionality (decodeText method)
+4) Build decode functionality (decodeText method)
 	.-- invoke grid generation (created above)
 	.-- invoke build list of bigrams (created above)
 	.-- lookup *reverse* bigram substitutes in grid (decodeBigram method) 
