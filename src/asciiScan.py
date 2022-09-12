@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 i=32
 j=256
