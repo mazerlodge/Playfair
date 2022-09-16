@@ -6,6 +6,7 @@ class PlayfairEngine:
 
 	bInitOK = False
 	bInDebug = False
+	key = "NOT_SET"
 
 	def __init__(self, args):
 		if (self.parseArgs(args)):
@@ -14,7 +15,7 @@ class PlayfairEngine:
 			print("Init failed in argument parser") 
 			
 	def showUsage(): 
-		print("Usage: PlayFair {add params here}")
+		print("Usage: PlayFair -key required [-plaintext | -enctext]")
 
 
 	def parseArgs(self, args): 
@@ -27,7 +28,22 @@ class PlayfairEngine:
 
 		self.bInDebug = ap.isInArgs("-debug", False)
 
-		# TODO: Add arg parsing here.
+		# check for -key param
+		rval = False
+		if (ap.isInArgs("-key", True)):
+			key = ap.getArgValue("-key")
+			rval = True
+		subtestResults.append(False)
+		subtestResultMessages.append("-key %s" % key)
+		
+		# Determine if all subtests passed
+		for aMsg in subtestResultMessages:
+			if (self.bInDebug):
+				msg = "Arg subtest {0}".format(aMsg)
+				print(msg)
+
+		for aSubResult in subtestResults:
+			rval = rval and aSubResult
 
 		return(rval)
 

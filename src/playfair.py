@@ -6,7 +6,7 @@ from PlayfairEngine import PlayfairEngine
 pe = PlayfairEngine(sys.argv) 
 
 if (not pe.bInitOK):
-	pe.showUsage()
+	PlayfairEngine.showUsage()
 else:
 	pe.doAction()
 
