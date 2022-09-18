@@ -2,6 +2,7 @@
 
 from ArgTools import ArgParser
 
+
 class PlayfairEngine:
 
 	bInitOK = False
@@ -9,10 +10,10 @@ class PlayfairEngine:
 	key = "NOT_SET"
 
 	def __init__(self, args):
-		if (self.parseArgs(args)):
-			self.bInitOK = True
-		else: 
-			print("Init failed in argument parser") 
+		self.bInitOK = self.parseArgs(args)	
+		if (not self.bInitOK):
+			self.showDebugMsg("PlayfairEngine __Init__ failed in argument parser") 
+			
 			
 	def showUsage(): 
 		print("Usage: PlayFair -key required [-plaintext | -enctext]")
@@ -33,14 +34,22 @@ class PlayfairEngine:
 		if (ap.isInArgs("-key", True)):
 			key = ap.getArgValue("-key")
 			rval = True
-		subtestResults.append(False)
-		subtestResultMessages.append("-key %s" % key)
+			subtestResultMessages.append("-key %s" % key)
+		else:
+			subtestResultMessages.append("-key param not found")
+		subtestResults.append(rval)
 		
 		# Determine if all subtests passed
 		for aMsg in subtestResultMessages:
 			if (self.bInDebug):
 				msg = "Arg subtest {0}".format(aMsg)
 				print(msg)
+
+		# TODO: add test for [-plaintext | -enctext] (one of these is required)
+		
+		if (self.bInDebug):
+			for aMsg in subtestResultMessages:
+				self.showDebugMsg(aMsg)
 
 		for aSubResult in subtestResults:
 			rval = rval and aSubResult
