@@ -4,8 +4,8 @@ __pycache__/
 *$py.class
 
 # Mac stuff
-.DS_Store
 *.bbprojectd
+.DS_Store
 
 # C extensions
 *.so
