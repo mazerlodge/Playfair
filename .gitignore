@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Mac stuff 
+# Mac stuff
 .DS_Store
 *.bbprojectd
 

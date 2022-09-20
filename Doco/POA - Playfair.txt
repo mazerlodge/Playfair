@@ -87,3 +87,5 @@ POA
 	.-- lookup *reverse* bigram substitutes in grid (decodeBigram method) 
 	.-- output result 
 
+Misc 
+	.-- Diag why .DS_Store shows in 'Show Working Copy Status...' when it has been added to .gitignore
