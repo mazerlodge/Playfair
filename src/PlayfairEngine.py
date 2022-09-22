@@ -8,6 +8,8 @@ class PlayfairEngine:
 	bInitOK = False
 	bInDebug = False
 	key = "NOT_SET"
+	encPhrase = "NOT_SET" 
+	plainPhrase = "NOT_SET"
 
 	def __init__(self, args):
 		self.bInitOK = self.parseArgs(args)	
@@ -38,6 +40,26 @@ class PlayfairEngine:
 		else:
 			subtestResultMessages.append("-key param not found")
 		subtestResults.append(rval)
+
+		# check for -enctext param
+		bHasEncText = False
+		if (ap.isInArgs("-enctext", True)):
+			encPhrase = ap.getArgValue("-enctext")
+			bHasEncText = True
+			subtestResultMessages.append("-enctext %s" % encPhrase)
+		else:
+			subtestResultMessages.append("-enctext param not found")
+		subtestResults.append(bHasEncText)
+
+		# check for -plaintext param
+		bHasPlainText = False
+		if (ap.isInArgs("-plaintext", True)):
+			plainPhrase = ap.getArgValue("-plaintext")
+			rval = True
+			subtestResultMessages.append("-plaintext %s" % plainPhrase)
+		else:
+			subtestResultMessages.append("-plaintext param not found")
+		subtestResults.append(rval)
 		
 		# Determine if all subtests passed
 		for aMsg in subtestResultMessages:
@@ -45,7 +67,13 @@ class PlayfairEngine:
 				msg = "Arg subtest {0}".format(aMsg)
 				print(msg)
 
-		# TODO: add test for [-plaintext | -enctext] (one of these is required)
+		# Test for [-plaintext | -enctext] (one of these is required)
+		bRval = False
+		if (bHasEncText or bHasPlainText):
+			subtestResultMessages.append("Either encText or plainText was found")
+		else: 
+			subtestResultMessages.append("Either encText or plainText was *not* found")
+		
 		
 		if (self.bInDebug):
 			for aMsg in subtestResultMessages:
