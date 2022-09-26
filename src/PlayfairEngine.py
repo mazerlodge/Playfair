@@ -49,17 +49,15 @@ class PlayfairEngine:
 			subtestResultMessages.append("-enctext %s" % encPhrase)
 		else:
 			subtestResultMessages.append("-enctext param not found")
-		subtestResults.append(bHasEncText)
 
 		# check for -plaintext param
 		bHasPlainText = False
 		if (ap.isInArgs("-plaintext", True)):
 			plainPhrase = ap.getArgValue("-plaintext")
-			rval = True
+			bHasPlainText = True
 			subtestResultMessages.append("-plaintext %s" % plainPhrase)
 		else:
 			subtestResultMessages.append("-plaintext param not found")
-		subtestResults.append(rval)
 		
 		# Determine if all subtests passed
 		for aMsg in subtestResultMessages:
@@ -71,10 +69,11 @@ class PlayfairEngine:
 		bRval = False
 		if (bHasEncText or bHasPlainText):
 			subtestResultMessages.append("Either encText or plainText was found")
+			subtestResults.append(True)
 		else: 
 			subtestResultMessages.append("Either encText or plainText was *not* found")
-		
-		
+			subtestResults.append(False)
+
 		if (self.bInDebug):
 			for aMsg in subtestResultMessages:
 				self.showDebugMsg(aMsg)
@@ -87,6 +86,8 @@ class PlayfairEngine:
 
 	def doAction(self):
 		PlayfairEngine.showMsg("doAction not yet implemented.")
+		
+		# TODO: Collapse -key (e.g. Tomorrow = TOMRW)
 
 
 	def showMsg(msg):
