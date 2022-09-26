@@ -66,9 +66,14 @@ POA
 
 0.1) Resolve Q, does arg parser accept param values with spaces 
 	Plan: If not, quote value for -plaintext param 
+	Answer: Quoting works fine. 
 	
 1) Build input accepting and validating.
 	e.g. -key required param and either -plaintext or -enctext
+	Status: Done 
+	
+1.1) Collapse -key param value (e.g. Tomorrow = TOMRW)
+	Status: YAH
 
 2) Build grid construction and output grid (for validation, add -showgrid param)
 
