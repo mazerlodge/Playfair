@@ -63,6 +63,7 @@ Invocation
 POA 
 -----
 0.0) Output ascii 32 to 126 and 161 to 165 (for a 10 x 10 grid)
+	Answer: Done w/ ~/src/asciiScan.py 
 
 0.1) Resolve Q, does arg parser accept param values with spaces 
 	Plan: If not, quote value for -plaintext param 
@@ -70,10 +71,12 @@ POA
 	
 1) Build input accepting and validating.
 	e.g. -key required param and either -plaintext or -enctext
-	Status: Done 
+	Status: Done, Usage: PlayFair -key required [-plaintext phrase | -enctext phrase]
 	
 1.1) Collapse -key param value (e.g. Tomorrow = TOMRW)
 	Status: YAH
+		POA - Output key before, write fn() to compress key, output key after 
+			All in PE.doAction()
 
 2) Build grid construction and output grid (for validation, add -showgrid param)
 

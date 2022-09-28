@@ -34,9 +34,9 @@ class PlayfairEngine:
 		# check for -key param
 		rval = False
 		if (ap.isInArgs("-key", True)):
-			key = ap.getArgValue("-key")
+			self.key = ap.getArgValue("-key")
 			rval = True
-			subtestResultMessages.append("-key %s" % key)
+			subtestResultMessages.append("-key %s" % self.key)
 		else:
 			subtestResultMessages.append("-key param not found")
 		subtestResults.append(rval)
@@ -88,7 +88,8 @@ class PlayfairEngine:
 		PlayfairEngine.showMsg("doAction not yet implemented.")
 		
 		# TODO: Collapse -key (e.g. Tomorrow = TOMRW)
-
+		PlayfairEngine.showMsg(self.bInDebug)
+		self.showDebugMsg("Currently have key = %s" % self.key)
 
 	def showMsg(msg):
 		print(msg)
