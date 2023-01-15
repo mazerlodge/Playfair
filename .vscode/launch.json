@@ -11,7 +11,7 @@
 			"program": "./src/playfair.py",
 			"console": "integratedTerminal",
 			"justMyCode": true,
-			"args": ["-debug", "-key", "fortyw"]
+			"args": ["-debug", "-key", "tomorrow", "-plaintext", "messagehere"]
 
 		}
 	]

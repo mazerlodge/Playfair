@@ -74,11 +74,10 @@ POA
 	Status: Done, Usage: PlayFair -key required [-plaintext phrase | -enctext phrase]
 	
 1.1) Collapse -key param value (e.g. Tomorrow = TOMRW)
-	Status: YAH
-		POA - Output key before, write fn() to compress key, output key after 
-			All in PE.doAction()
+	Status: Done, Implementation in PE.collapseKey(), result stored in PE.key member var
 
 2) Build grid construction and output grid (for validation, add -showgrid param)
+	Status: YAH 
 
 3) Build encode functionality (encodeText method)
 	.-- add -debug option 

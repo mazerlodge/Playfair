@@ -86,10 +86,26 @@ class PlayfairEngine:
 
 	def doAction(self):
 		PlayfairEngine.showMsg("doAction not yet implemented.")
+
+		self.collapseKey()
 		
-		# TODO: Collapse -key (e.g. Tomorrow = TOMRW)
+
+	def collapseKey(self): 
+		# Collapse -key (e.g. Tomorrow = TOMRW)
 		PlayfairEngine.showMsg(self.bInDebug)
+
+		# Convert key to upper case 
+		self.key = self.key.upper()
 		self.showDebugMsg("Currently have key = %s" % self.key)
+
+		# Walk key letters, capturing unique list of letters 
+		uniqueLetters = ""
+		for aLet in self.key: 
+			if (uniqueLetters.find(aLet) == -1): 
+				uniqueLetters += aLet 
+		self.key = uniqueLetters
+		self.showDebugMsg("Unique Key Letters = %s" % self.key)
+
 
 	def showMsg(msg):
 		print(msg)

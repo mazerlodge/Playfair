@@ -4,8 +4,11 @@ __pycache__/
 *$py.class
 
 # Mac stuff
-*.bbprojectd
 .DS_Store
+
+# BBEdit stuff 
+*.bbprojectd
+*.worksheet
 
 # C extensions
 *.so
